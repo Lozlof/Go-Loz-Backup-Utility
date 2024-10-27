@@ -8,7 +8,10 @@ import (
 )
 
 func main() {	
+	// Display the welcome message.
 	displayToTerminal(1)
+	// Display the main menu.
+	displayToTerminal(2)
 }
 
 // This function prints to the terminal.
@@ -32,5 +35,9 @@ func displayToTerminal(inputChoice int) {
 		// Convert byte slice to string to display Unicode properly.
 		// Without the string conversion it will not display correctly.
 		fmt.Println(string(welcomeMessage))
+	}
+
+	if inputChoice == 2 {
+		mainMenuText, err := os.ReadFile()
 	}
 }
