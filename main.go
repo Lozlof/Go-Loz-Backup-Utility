@@ -26,7 +26,11 @@ func displayToTerminal(inputChoice int) {
 		if err != nil {
 			log.Fatal(err)
 		}
-
-		fmt.Print(welcomeMessage)
+		
+		// os.ReadFile stores the data as a byte slice in Go.
+		// A byte slice in Go is essentially a slice of bytes, where each byte is an unsigned 8-bit integer (uint8).
+		// Convert byte slice to string to display Unicode properly.
+		// Without the string conversion it will not display correctly.
+		fmt.Println(string(welcomeMessage))
 	}
 }
