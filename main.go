@@ -15,9 +15,9 @@ func main() {
 }
 
 // This function prints to the terminal.
-// inputChoice is used to determine what to print.
+// passedChoice is used to determine what to print.
 func displayToTerminal(passedChoice int) {
-	if passedChoice == 1 {
+	if passedChoice == 1 { // Will display the welcome message.
 		// ReadFile reads the named file and returns the contents.
 		// A successful call returns err == nil, not err == EOF.
 		// Because ReadFile reads the whole file, it does not treat an EOF from Read as an error to be reported. 
@@ -37,7 +37,7 @@ func displayToTerminal(passedChoice int) {
 		fmt.Println(string(welcomeMessage))
 	}
 
-	if passedChoice == 2 {
+	if passedChoice == 2 { // Will display the main menu.
 		mainMenuText, err := os.ReadFile("txtFiles/mainMenu.txt")
 
 		if err != nil {
@@ -46,5 +46,21 @@ func displayToTerminal(passedChoice int) {
 
 		// Will also not display correctly without the string conversion.
 		fmt.Println(string(mainMenuText))
+	}
+}
+
+// This function is used when user input is needed.
+// inputChoice is used to determine what to execute.
+func getUserInput(inputChoice int) {
+	// userInput has to be a string because the lozgo sanitization.go functions require a string to be passed.
+	// var userInput string
+
+	if inputChoice == 1 {
+		
+		// can scans text read from standard input, storing successive space-separated values into successive arguments.
+		// Newlines count as space.
+		// It returns the number of items successfully scanned.
+		// If that is less than the number of arguments, err will report why. 
+		fmt.Scan(&userInput)
 	}
 }
